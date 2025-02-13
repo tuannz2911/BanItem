@@ -17,8 +17,6 @@
  */
 package fr.andross.banitem;
 
-import io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler;
-import io.papermc.paper.threadedregions.scheduler.AsyncScheduler;
 import fr.andross.banitem.commands.BanCommand;
 import fr.andross.banitem.utils.Chat;
 import fr.andross.banitem.utils.metrics.Metrics;
@@ -36,6 +34,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler;
+import io.papermc.paper.threadedregions.scheduler.AsyncScheduler;
 
 /**
  * BanItemPlugin
