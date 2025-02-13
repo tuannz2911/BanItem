@@ -82,7 +82,8 @@ public final class BanItem extends JavaPlugin {
         // Removing all tasks
         utils.getWearScanner().setEnabled(false);
         utils.getIllegalStackScanner().setEnabled(false);
-        getServer().getScheduler().cancelTasks(this);
+        getServer().getAsyncScheduler().cancelTasks(this);
+        getServer().getGlobalRegionScheduler().cancelTasks(this);
 
         // (re)Loading config
         banConfig = new BanConfig(this, sender, configFile);
