@@ -17,6 +17,8 @@
  */
 package fr.andross.banitem;
 
+import io.papermc.paper.threadedregions.scheduler.GlobalRegionScheduler;
+import io.papermc.paper.threadedregions.scheduler.AsyncScheduler;
 import fr.andross.banitem.commands.BanCommand;
 import fr.andross.banitem.utils.Chat;
 import fr.andross.banitem.utils.metrics.Metrics;
@@ -53,7 +55,7 @@ public final class BanItem extends JavaPlugin {
     public void onEnable() {
         instance = this;
         api = new BanItemAPI(this);
-        Bukkit.getScheduler().runTaskLater(this, () -> {
+        Bukkit.getGlobalRegionScheduler().runDelayed(this, (globaltask) -> {
             if (!isEnabled()) return;
 
             // Metrics
@@ -64,7 +66,7 @@ public final class BanItem extends JavaPlugin {
 
             // Update checker
             if (banConfig.getConfig().getBoolean("check-update"))
-                Bukkit.getScheduler().runTaskAsynchronously(this, utils::checkForUpdate);
+                Bukkit.getAsyncScheduler().runNow(this, utils::checkForUpdate);
         }, 20L);
     }
 
