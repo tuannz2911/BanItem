@@ -3,7 +3,8 @@ main: fr.andross.banitem.BanItem
 version: '${project.version}'
 author: Andross
 description: Ban item
-api-version: '1.13'
+api-version: '1.20'
+folia-supported: true
 softdepend: [AdvancedEnchantments, ItemsAdder, NBTAPI, WorldGuard]
 commands:
   banitem:
